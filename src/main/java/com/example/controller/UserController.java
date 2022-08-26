@@ -5,10 +5,10 @@ import com.example.common.R;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/login")
     public R<User> login(HttpServletRequest request, @RequestBody User user){
         // 获取密码
         String password = user.getPassword();
